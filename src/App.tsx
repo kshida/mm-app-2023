@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Particles from "react-particles";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 import { Player } from "textalive-app-api"
 import './App.css'
@@ -11,13 +11,8 @@ const App = () => {
   const [showControl, setShowControl] = useState(false)
 
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
     await loadSlim(engine);
-}, []);
-
-const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    await console.log(container);
-}, []);
+  }, []);
 
   // 単語が発声されていたら #text に表示する
   const animateWord = (now: any, unit: any) => {
@@ -27,12 +22,10 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
   };
 
   const onPlay = () => {
-    console.log("onPlay")
     player?.requestPlay()
   }
 
   const onStop = () => {
-    console.log("onStop")
     player?.requestPause()
   }
 
@@ -48,32 +41,24 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
     const playerListenr = {
       onAppReady: (app: any) => {
         // TextAlive ホストと接続されていなければ再生コントロールを表示する
-        console.log("--- [app] initialized as TextAlive app ---");
         if (!app.managed) {
-          console.log("managed:", app.managed);
-          console.log("host:", app.host);
-          console.log("song url:", app.songUrl);
-          // 生きること / nogumi feat. 初音ミク
-          player.createFromSongUrl("https://piapro.jp/t/fnhJ/20230131212038", {
+          // ネオンライトの海を往く / Ponchi♪ feat. 初音ミク
+          player.createFromSongUrl("https://piapro.jp/t/fyxI/20230203003935", {
             video: {
-              beatId: 4267300,
-              chordId: 2405033,
-              repetitiveSegmentId: 2475606,
-              lyricId: 56131,
-              lyricDiffId: 9638
+              // 音楽地図訂正履歴: https://songle.jp/songs/2427951/history
+              beatId: 4267373,
+              chordId: 2405138,
+              repetitiveSegmentId: 2475664,
+              // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/piapro.jp%2Ft%2FfyxI%2F20230203003935
+              lyricId: 56096,
+              lyricDiffId: 9639
             },
           });
           setShowControl(true)
         }
       },
       // 動画オブジェクトの準備が整ったとき（楽曲に関する情報を読み込み終わったとき）に呼ばれる
-      onVideoReady: (v: any) => {
-        console.log("--- [app] video is ready ---");
-        console.log("player:", player);
-        console.log("player.data.song:", player.data.song);
-        console.log("player.data.song.name:", player.data.song.name);
-        console.log("player.data.song.artist.name:", player.data.song.artist.name);
-        console.log("player.data.songMap:", player.data.songMap);
+      onVideoReady: () => {
         // 定期的に呼ばれる各単語の "animate" 関数をセットする
         let w = player.video.firstWord;
         while (w) {
@@ -81,12 +66,6 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
           w = w.next;
         }
       },
-      onTimerReady() {
-        console.log("--- [app] on timer is ready ---");
-      },
-      onPlay: () => console.log("再生開始"),
-      onPause: () => console.log("再生一時停止"),
-      onStop: () => console.log("再生終了（頭出し）"),
     }
     player.addListener(playerListenr);
   }, [])
@@ -96,7 +75,6 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
         <Particles
           id="tsparticles"
           init={particlesInit}
-          loaded={particlesLoaded}
           options={{
               background: {
                   color: {
