@@ -4,6 +4,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 100px;
+  user-select: none;
 }
 #media {
     position: absolute;
