@@ -6,6 +6,8 @@
 
 - サンプルコードのデモページ: https://mm-app-2023.pages.dev/
 
+![スクリーンショット 2023-07-18 1 04 42](https://github.com/kshida/mm-app-2023/assets/34312716/616c0dd8-deb6-4f3d-819e-fa9fe53ee21b)
+
 ## 開発
 
 [Node.js](https://nodejs.org/) をインストールしている環境で以下のコマンドを実行すると、開発用サーバが起動します。
