@@ -172,17 +172,17 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
               detectRetina: true,
           }}
         />
-      <div id="container" style={{ position: "fixed" }}>
-        <div>
-            {songText}
-        </div>
+      <div id="container">
+        {songText}
       </div>
-      <div id="media" style={{ position: "fixed" }}></div>
-      <div id="footer" style={{marginTop: "20px", position: "fixed"}}>
-        <div id="control" style={{display: showControl ? "block" : "none"}}>
-          <button className="play" onClick={onPlay}>再生</button>
-          <button id="pause" onClick={onStop}>一時停止</button>
+      <div id="media"></div>
+      <div id="footer">
+        {showControl && (
+        <div className="buttons">
+          <button onClick={onPlay}>Play</button>
+          <button onClick={onStop}>Pause</button>
         </div>
+        )}
       </div>
     </>
   )
