@@ -100,7 +100,7 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
           options={{
               background: {
                   color: {
-                      value: "#0d47a1",
+                      value: "#000000",
                   },
               },
               fpsLimit: 120,
@@ -112,30 +112,35 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
                       },
                       onHover: {
                           enable: true,
-                          mode: "repulse",
+                          mode: "bubble",
                       },
                       resize: true,
                   },
                   modes: {
-                      push: {
-                          quantity: 4,
-                      },
-                      repulse: {
-                          distance: 200,
-                          duration: 0.4,
-                      },
+                    bubble: {
+                      distance: 300,
+                      duration: 5,
+                      opacity: 1,
+                      size: 30,
+                      speed: 30,
+                      color: {
+                        value: ["#5bc0eb", "#fde74c", "#9bc53d", "#e55934", "#fa7921"]
+                      }
+                    },
                   },
+                  push: {
+                    quantity: 4,
+                },
               },
               particles: {
                   color: {
-                      value: "#ffffff",
-                  },
-                  links: {
-                      color: "#ffffff",
-                      distance: 150,
-                      enable: true,
-                      opacity: 0.5,
-                      width: 1,
+                      value: "#40E0D0",
+                      animation: {
+                          count: 1,
+                          enable: true,
+                          speed: 60,
+                          sync: true,
+                      },
                   },
                   move: {
                       direction: "none",
@@ -152,7 +157,7 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
                           enable: true,
                           area: 800,
                       },
-                      value: 80,
+                      value: 150,
                   },
                   opacity: {
                       value: 0.5,
@@ -161,7 +166,7 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
                       type: "circle",
                   },
                   size: {
-                      value: { min: 1, max: 5 },
+                      value: { min: 3, max: 10 },
                   },
               },
               detectRetina: true,
