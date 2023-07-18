@@ -60,8 +60,10 @@ const App = () => {
                     w.animate = animateWord;
                     w = w.next;
                 }
-                setShowControl(true)
             },
+            onTimerReady: () => {
+                setShowControl(true)
+            }
         }
         player.addListener(playerListenr);
     }, [])
@@ -82,11 +84,13 @@ const App = () => {
                     </div>
                 </>
             ) : ( 
-                showControl && (
-                    <div className="center">
-                        <button onClick={onPlay}>Play</button>
-                    </div>
-                )
+                <div className="center">
+                {showControl ? (
+                    <button onClick={onPlay}>Play</button>
+                ) : (
+                    "Now Loading..."
+                )}
+                </div>
             )}
             <div id="media"></div>
         </>
