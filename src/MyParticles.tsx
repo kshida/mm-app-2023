@@ -55,7 +55,6 @@ const MyParticles = () => {
                     color: {
                         value: "#40E0D0",
                         animation: {
-                            count: 1,
                             enable: true,
                             speed: 60,
                             sync: true,

@@ -36,7 +36,7 @@ const App = () => {
 
         const playerListenr = {
             onAppReady: (app: any) => {
-                // TextAlive ホストと接続されていなければ再生コントロールを表示する
+                // TextAlive ホストと接続されていなければ指定した楽曲情報を読み込む
                 if (!app.managed) {
                     // ネオンライトの海を往く / Ponchi♪ feat. 初音ミク
                     player.createFromSongUrl("https://piapro.jp/t/fyxI/20230203003935", {
@@ -50,7 +50,6 @@ const App = () => {
                             lyricDiffId: 9639
                         },
                     });
-                    setShowControl(true)
                 }
             },
             // 動画オブジェクトの準備が整ったとき（楽曲に関する情報を読み込み終わったとき）に呼ばれる
@@ -61,6 +60,7 @@ const App = () => {
                     w.animate = animateWord;
                     w = w.next;
                 }
+                setShowControl(true)
             },
         }
         player.addListener(playerListenr);
