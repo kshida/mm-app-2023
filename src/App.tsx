@@ -68,22 +68,27 @@ const App = () => {
 
     return (
         <>
-            {showParticles
-             ? (<MyParticles />)
-             : <div className="notice">Please Click Play Button!!</div>
-            }
-            <div id="container">
-                {songText}
-            </div>
+            {showParticles ? (
+                <>
+                    <div id="header">
+                        <div className="buttons">
+                            <button onClick={onPlay}>Play</button>
+                            <button onClick={onStop}>Pause</button>
+                        </div>
+                    </div>
+                    <MyParticles />
+                    <div id="container">
+                        {songText}
+                    </div>
+                </>
+            ) : ( 
+                showControl && (
+                    <div className="center">
+                        <button onClick={onPlay}>Play</button>
+                    </div>
+                )
+            )}
             <div id="media"></div>
-            <div id="footer">
-                {showControl && (
-                <div className="buttons">
-                    <button onClick={onPlay}>Play</button>
-                    <button onClick={onStop}>Pause</button>
-                </div>
-                )}
-            </div>
         </>
     )
 }
