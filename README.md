@@ -19,6 +19,18 @@ npm install
 npm run dev
 ```
 
+ローカルではTextAlive用のトークンを環境変数から取得しています。
+```
+            app: {
+                token: import.meta.env.VITE_TEXT_ALIVE_TOKEN
+            },
+```
+
+事前に `.env.local` を作成し、以下内容を追記してください。
+```
+VITE_TEXT_ALIVE_TOKEN={トークン}
+```
+
 ## ビルド
 
 以下のコマンドで `dist` 以下にビルド済みファイルが生成されます。
