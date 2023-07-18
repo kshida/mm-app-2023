@@ -7,7 +7,8 @@
 
 - サンプルコードのデモページ: https://mm-app-2023.pages.dev/
 
-![スクリーンショット 2023-07-18 1 04 42](https://github.com/kshida/mm-app-2023/assets/34312716/616c0dd8-deb6-4f3d-819e-fa9fe53ee21b)
+![スクリーンショット 2023-07-18 10 49 22](https://github.com/kshida/mm-app-2023/assets/34312716/c4ada3bc-f710-42fe-92e4-f5e5325c392c)
+
 
 ## 開発
 
