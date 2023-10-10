@@ -11,7 +11,7 @@
 
 - サンプルコードのデモページ: https://mm-app-2023.pages.dev/
 
-![スクリーンショット 2023-07-18 10 49 22](https://github.com/kshida/mm-app-2023/assets/34312716/c4ada3bc-f710-42fe-92e4-f5e5325c392c)
+![スクリーンショット 2023-07-18 10 49 22](https://github.com/kshida/mm-app-2023/assets/34312716/661af26f-2087-4374-86bb-8d5e44a201c3)
 
 
 ## 開発
@@ -25,9 +25,9 @@ npm run dev
 
 ローカルではTextAlive用のトークンを環境変数から取得しています。
 ```
-            app: {
-                token: import.meta.env.VITE_TEXT_ALIVE_TOKEN
-            },
+    app: {
+        token: import.meta.env.VITE_TEXT_ALIVE_TOKEN
+    },
 ```
 
 事前に `.env.local` を作成し、以下内容を追記してください。
